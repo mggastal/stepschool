@@ -44,70 +44,48 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 70% 60% at 70% 40%, rgba(200,146,42,0.08) 0%, transparent 70%),
-    linear-gradient(160deg, #0D1B3E 0%, #091430 100%);
+  background-image: url('leocir e thiago.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   z-index: 0;
+}
+
+/* Overlay: opaco à esquerda para legibilidade, abre à direita para mostrar os rostos */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(9,14,32,0.96) 0%,
+      rgba(9,14,32,0.85) 40%,
+      rgba(9,14,32,0.45) 68%,
+      rgba(9,14,32,0.10) 100%),
+    linear-gradient(to top,
+      rgba(9,14,32,0.9) 0%,
+      transparent 45%);
 }
 
 .hero-grid-lines {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  background-image:
-    linear-gradient(rgba(200,146,42,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200,146,42,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-.hero-photo-area {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 55%;
-  height: 100%;
   z-index: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  background-image:
+    linear-gradient(rgba(200,146,42,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,146,42,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
 }
 
-.hero-photo-placeholder {
-  width: 100%;
-  height: 90%;
-  background: linear-gradient(to top, rgba(13,27,62,1) 0%, rgba(13,27,62,0.2) 50%, transparent 100%);
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
-}
-
-.hero-img-slot {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  opacity: 0.55;
-  filter: grayscale(20%);
-}
-
-.hero-img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed rgba(200,146,42,0.2);
-  color: rgba(200,146,42,0.4);
-  font-size: 12px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
+.hero-photo-area,
+.hero-photo-placeholder,
+.hero-img-slot,
+.hero-img-placeholder { display: none !important; }
 
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   padding: 0 5vw 72px;
   max-width: 620px;
 }
@@ -1019,7 +997,7 @@ footer {
   <div class="hero-grid-lines"></div>
   <div class="hero-photo-area">
     <!-- SUBSTITUA src="" pela foto do Thiago e Leocir juntos -->
-    <img class="hero-img-slot" src="fundo.png" alt="Thiago Grigoletti e Leocir Carneiro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <img class="hero-img-slot" src="leocir e thiago.png" alt="Thiago Grigoletti e Leocir Carneiro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="hero-img-placeholder" style="display:none">
       <div style="text-align:center;color:rgba(200,146,42,0.3);font-size:11px;letter-spacing:0.1em;">📸 Foto Thiago + Leocir</div>
     </div>
