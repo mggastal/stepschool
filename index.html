@@ -819,7 +819,67 @@ body {
   stroke-width: 1.8;
 }
 
-/* ── SOCIAL PROOF ── */
+/* ── PROOF CAROUSEL ── */
+.proof-carousel-wrap {
+  position: relative;
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+.proof-carousel {
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+.proof-carousel:active { cursor: grabbing; }
+.proof-carousel-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: carouselScroll 32s linear infinite;
+}
+.proof-carousel-wrap:hover .proof-carousel-track {
+  animation-play-state: paused;
+}
+.proof-slide {
+  flex-shrink: 0;
+  width: 280px;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.03);
+}
+.proof-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.proof-slide:hover img { transform: scale(1.04); }
+
+/* fade edges */
+.proof-carousel-fade {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100px;
+  pointer-events: none;
+  z-index: 2;
+}
+.proof-carousel-fade-left {
+  left: 0;
+  background: linear-gradient(90deg, var(--navy-mid) 0%, transparent 100%);
+}
+.proof-carousel-fade-right {
+  right: 0;
+  background: linear-gradient(270deg, var(--navy-mid) 0%, transparent 100%);
+}
+@keyframes carouselScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
 .social-proof {
   background: var(--navy-mid);
   padding: 80px 5vw;
@@ -1099,23 +1159,14 @@ footer {
     <div class="inside-right">
       <div class="inside-photo-row">
         <div class="photo-slot">
-          <!-- SUBSTITUA src="" pela foto do Thiago -->
-          <img src="foto-thiago.jpg" alt="Thiago Grigoletti" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="photo-slot-icon" style="display:none"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <span style="display:none">Foto Thiago</span>
+          <img src="Discord.png" alt="Discord Step School" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="photo-slot">
-          <!-- SUBSTITUA src="" pela foto do Leocir -->
-          <img src="foto-leocir.jpg" alt="Leocir Carneiro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="photo-slot-icon" style="display:none"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <span style="display:none">Foto Leocir</span>
+          <img src="escola01.png" alt="Escola Step School" style="width:100%;height:100%;object-fit:cover;">
         </div>
       </div>
       <div class="photo-slot photo-slot-wide">
-        <!-- SUBSTITUA src="" pela foto dos dois juntos / turma / ao vivo -->
-        <img src="foto-aula-ao-vivo.jpg" alt="Aula ao vivo Step School" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="photo-slot-icon" style="display:none"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-        <span style="display:none">Foto da turma / aula ao vivo</span>
+        <img src="escola02.png" alt="Aula ao vivo Step School" style="width:100%;height:100%;object-fit:cover;">
       </div>
     </div>
   </div>
@@ -1131,8 +1182,7 @@ footer {
     <div class="teachers-grid">
       <!-- THIAGO -->
       <div class="teacher-card">
-        <!-- SUBSTITUA src="" pela foto do Thiago -->
-        <img class="teacher-photo" src="foto-thiago.jpg" alt="Thiago Grigoletti" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img class="teacher-photo" src="Thiago Grigoletti.png" alt="Thiago Grigoletti" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="teacher-photo-slot" style="display:none">
           <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           Foto Thiago Grigoletti
@@ -1154,8 +1204,7 @@ footer {
       </div>
       <!-- LEOCIR -->
       <div class="teacher-card">
-        <!-- SUBSTITUA src="" pela foto do Leocir -->
-        <img class="teacher-photo" src="foto-leocir.jpg" alt="Leocir Carneiro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img class="teacher-photo" src="Leocir Carneiro.png" alt="Leocir Carneiro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="teacher-photo-slot" style="display:none">
           <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           Foto Leocir Carneiro
@@ -1197,26 +1246,33 @@ footer {
       <div class="section-tag">Resultados da escola</div>
       <h2 class="section-title" style="color:var(--white)">Uma comunidade<br>que vence.</h2>
     </div>
-    <div class="proof-photos">
-      <!-- SUBSTITUA com prints de resultados, depoimentos, prints de alunos, etc. -->
-      <div class="proof-photo-slot">
-        <img src="prova-social-1.jpg" alt="Resultado aluno" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div style="display:none;flex-direction:column;align-items:center;gap:6px;color:rgba(200,146,42,0.25);font-size:8px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-align:center;">
-          📸 Print resultado / depoimento
+    <!-- Carousel de resultados -->
+    <div class="proof-carousel-wrap">
+      <div class="proof-carousel" id="proofCarousel">
+        <div class="proof-carousel-track" id="proofTrack">
+          <div class="proof-slide"><img src="resultado.12.59.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.12.43.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.12.32.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.13.12.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.13.29.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.14.02.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.12.21.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.14.20.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.12.24.png" alt="Resultado aluno"></div>
+          <!-- duplicatas para loop infinito -->
+          <div class="proof-slide"><img src="resultado.12.59.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.12.43.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.12.32.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.13.12.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.13.29.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.14.02.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.12.21.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.14.20.png" alt="Resultado aluno"></div>
+          <div class="proof-slide"><img src="resultado.12.24.png" alt="Resultado aluno"></div>
         </div>
       </div>
-      <div class="proof-photo-slot">
-        <img src="prova-social-2.jpg" alt="Resultado aluno" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div style="display:none;flex-direction:column;align-items:center;gap:6px;color:rgba(200,146,42,0.25);font-size:8px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-align:center;">
-          📸 Print resultado / depoimento
-        </div>
-      </div>
-      <div class="proof-photo-slot">
-        <img src="prova-social-3.jpg" alt="Resultado aluno" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div style="display:none;flex-direction:column;align-items:center;gap:6px;color:rgba(200,146,42,0.25);font-size:8px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-align:center;">
-          📸 Print resultado / depoimento
-        </div>
-      </div>
+      <div class="proof-carousel-fade proof-carousel-fade-left"></div>
+      <div class="proof-carousel-fade proof-carousel-fade-right"></div>
     </div>
     <div class="proof-stats">
       <div class="proof-stat">
