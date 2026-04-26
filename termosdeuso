@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termos de Uso — Step School</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B3E;
+    --navy-mid: #132248;
+    --gold: #C8922A;
+    --gold-light: #E0A840;
+    --white: #FFFFFF;
+    --cream: #F5F0E8;
+    --muted: #5A5A6A;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: #1A1A2E;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  .doc-header {
+    background: var(--navy);
+    padding: 28px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .doc-header img {
+    height: 44px;
+    object-fit: contain;
+  }
+  .doc-header-back {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .doc-header-back:hover { color: var(--gold-light); }
+
+  /* HERO */
+  .doc-hero {
+    background: var(--navy-mid);
+    padding: 64px 5vw 56px;
+    border-bottom: 3px solid var(--gold);
+  }
+  .doc-hero-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .doc-hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--gold-light); }
+  .doc-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .doc-hero-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+  }
+
+  /* CONTENT */
+  .doc-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 5vw 100px;
+  }
+
+  .doc-section {
+    margin-bottom: 48px;
+  }
+  .doc-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(13,27,62,0.1);
+  }
+  .doc-section h2 span {
+    color: var(--gold);
+    margin-right: 10px;
+    font-style: italic;
+  }
+  .doc-section p {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+  .doc-section p:last-child { margin-bottom: 0; }
+  .doc-section ul {
+    margin: 10px 0 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .doc-section ul li {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .doc-section ul li::marker { color: var(--gold); }
+  .doc-section strong { color: #1A1A2E; font-weight: 600; }
+
+  /* INDEX */
+  .doc-index {
+    background: var(--white);
+    border: 1px solid rgba(13,27,62,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+    margin-bottom: 48px;
+  }
+  .doc-index h3 {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .doc-index ol {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .doc-index ol li a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .doc-index ol li a:hover { color: var(--gold); }
+
+  /* FOOTER */
+  .doc-footer {
+    background: #07101F;
+    padding: 28px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .doc-footer img { height: 36px; object-fit: contain; }
+  .doc-footer p {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <img src="logo sem fundo STEP SCHOOL.png" alt="Step School">
+  <a class="doc-header-back" href="https://stepschool.com.br">← Voltar ao site</a>
+</header>
+
+<div class="doc-hero">
+  <div class="doc-hero-tag">Documento legal</div>
+  <h1>Termos de Uso</h1>
+  <p class="doc-hero-meta">Última atualização: abril de 2026 · Grigoletti Mídias LTDA — CNPJ 43.877.418/0001-94</p>
+</div>
+
+<div class="doc-body">
+
+  <div class="doc-index">
+    <h3>Índice</h3>
+    <ol>
+      <li><a href="#s1">1. Aceitação dos Termos</a></li>
+      <li><a href="#s2">2. Sobre a Step School</a></li>
+      <li><a href="#s3">3. Cadastro e Acesso</a></li>
+      <li><a href="#s4">4. Planos e Pagamentos</a></li>
+      <li><a href="#s5">5. Política de Reembolso</a></li>
+      <li><a href="#s6">6. Uso Permitido e Proibições</a></li>
+      <li><a href="#s7">7. Propriedade Intelectual</a></li>
+      <li><a href="#s8">8. Isenção de Responsabilidade</a></li>
+      <li><a href="#s9">9. Suspensão e Encerramento</a></li>
+      <li><a href="#s10">10. Alterações nos Termos</a></li>
+      <li><a href="#s11">11. Foro e Lei Aplicável</a></li>
+      <li><a href="#s12">12. Contato</a></li>
+    </ol>
+  </div>
+
+  <div class="doc-section" id="s1">
+    <h2><span>1.</span>Aceitação dos Termos</h2>
+    <p>Ao acessar ou utilizar qualquer serviço da <strong>Step School</strong>, operada pela <strong>Grigoletti Mídias LTDA</strong> (CNPJ 43.877.418/0001-94), você declara que leu, compreendeu e concorda com estes Termos de Uso em sua totalidade.</p>
+    <p>Caso não concorde com qualquer disposição deste documento, solicitamos que não utilize nossos serviços. A continuidade do uso após modificações publicadas implica aceitação dos novos termos.</p>
+  </div>
+
+  <div class="doc-section" id="s2">
+    <h2><span>2.</span>Sobre a Step School</h2>
+    <p>A Step School é uma escola online de poker que oferece conteúdo educacional em formato de mentorias ao vivo, gravações de aulas, trilhas de estudo e comunidade exclusiva para seus membros.</p>
+    <p>Os serviços são prestados exclusivamente por meio digital, incluindo plataforma de streaming de aulas, grupo de comunicação (Discord) e sessões ao vivo por videoconferência.</p>
+  </div>
+
+  <div class="doc-section" id="s3">
+    <h2><span>3.</span>Cadastro e Acesso</h2>
+    <p>Para acessar os conteúdos da Step School, o usuário deverá realizar um cadastro fornecendo informações verdadeiras, completas e atualizadas. O usuário é responsável pela confidencialidade de suas credenciais de acesso.</p>
+    <ul>
+      <li>É vedado o compartilhamento de login e senha com terceiros.</li>
+      <li>Cada licença de acesso é pessoal e intransferível.</li>
+      <li>O uso simultâneo em múltiplos dispositivos pode ser monitorado e restringido.</li>
+      <li>Em caso de suspeita de uso indevido, a Step School poderá suspender o acesso imediatamente.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section" id="s4">
+    <h2><span>4.</span>Planos e Pagamentos</h2>
+    <p>A Step School oferece diferentes modalidades de acesso, cujos valores, condições e benefícios estão descritos na página de vendas. Os preços podem ser alterados a qualquer momento, sem que isso afete contratos já firmados.</p>
+    <ul>
+      <li><strong>Acesso Standard:</strong> inclui plataforma de aulas, mentorias em grupo ao vivo e Discord exclusivo pelo período contratado.</li>
+      <li><strong>Acesso Individual:</strong> modalidade exclusiva para alunos ativos, com condições negociadas diretamente com a equipe.</li>
+      <li>Pagamentos realizados via cartão de crédito podem ser parcelados conforme as condições apresentadas no momento da compra.</li>
+      <li>O acesso é liberado após a confirmação do pagamento pela operadora financeira.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section" id="s5">
+    <h2><span>5.</span>Política de Reembolso</h2>
+    <p>Conforme o <strong>Código de Defesa do Consumidor (Lei nº 8.078/90)</strong>, o usuário que adquirir o serviço por meio digital tem direito ao arrependimento e cancelamento em até <strong>7 (sete) dias corridos</strong> após a data da compra, desde que não tenha acessado o conteúdo da plataforma.</p>
+    <p>Para solicitar o reembolso dentro do prazo legal, o aluno deve entrar em contato por WhatsApp ou e-mail informando o motivo. O estorno será processado conforme o método de pagamento original em até 30 dias.</p>
+    <p>Após o período de 7 dias ou havendo acesso ao conteúdo, não haverá direito a reembolso, exceto em casos previstos por lei ou acordados individualmente com a equipe.</p>
+  </div>
+
+  <div class="doc-section" id="s6">
+    <h2><span>6.</span>Uso Permitido e Proibições</h2>
+    <p>O conteúdo da Step School destina-se exclusivamente ao uso pessoal e educacional do assinante. É expressamente proibido:</p>
+    <ul>
+      <li>Reproduzir, copiar, redistribuir ou compartilhar qualquer conteúdo da plataforma sem autorização prévia e por escrito.</li>
+      <li>Gravar, fazer download ou capturar as aulas ao vivo ou gravadas sem permissão.</li>
+      <li>Utilizar o conteúdo para fins comerciais, como revenda, criação de cursos derivados ou treinamento de terceiros.</li>
+      <li>Realizar engenharia reversa ou tentativas de acesso não autorizado à plataforma.</li>
+      <li>Compartilhar links de acesso ou credenciais com pessoas não cadastradas.</li>
+    </ul>
+    <p>O descumprimento dessas regras resultará no cancelamento imediato do acesso, sem direito a reembolso, e poderá implicar responsabilização civil e criminal.</p>
+  </div>
+
+  <div class="doc-section" id="s7">
+    <h2><span>7.</span>Propriedade Intelectual</h2>
+    <p>Todo o conteúdo disponibilizado na Step School — incluindo aulas gravadas, materiais de apoio, marcas, logotipos, layout e metodologias — é de propriedade exclusiva da Grigoletti Mídias LTDA ou de seus instrutores, protegido pela legislação brasileira de direitos autorais (Lei nº 9.610/98).</p>
+    <p>A assinatura confere ao usuário uma licença limitada, não exclusiva e intransferível para consumo pessoal do conteúdo durante o período de vigência do plano contratado.</p>
+  </div>
+
+  <div class="doc-section" id="s8">
+    <h2><span>8.</span>Isenção de Responsabilidade</h2>
+    <p>O poker envolve risco financeiro. O conteúdo educacional da Step School tem finalidade exclusivamente didática e não constitui garantia de resultados, lucros ou desempenho em jogos. Os resultados apresentados pelos instrutores são individuais e não representam expectativa de retorno para os alunos.</p>
+    <p>A Step School não se responsabiliza por:</p>
+    <ul>
+      <li>Perdas financeiras decorrentes da prática de poker.</li>
+      <li>Instabilidades técnicas de plataformas terceiras (Zoom, Discord, etc.).</li>
+      <li>Danos causados por uso inadequado das informações fornecidas.</li>
+      <li>Interrupções temporárias de serviço por manutenção ou força maior.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section" id="s9">
+    <h2><span>9.</span>Suspensão e Encerramento</h2>
+    <p>A Step School reserva-se o direito de suspender ou encerrar o acesso de qualquer usuário que viole estes Termos, pratique condutas inadequadas no ambiente da comunidade (Discord, grupos de WhatsApp, chats das aulas) ou realize uso indevido da plataforma.</p>
+    <p>Em caso de encerramento por violação, não haverá reembolso proporcional ao período restante.</p>
+  </div>
+
+  <div class="doc-section" id="s10">
+    <h2><span>10.</span>Alterações nos Termos</h2>
+    <p>Estes Termos de Uso podem ser atualizados a qualquer momento. Alterações relevantes serão comunicadas por e-mail ou dentro da própria plataforma. O uso continuado dos serviços após a notificação implica aceitação das mudanças.</p>
+    <p>Recomendamos que o usuário revise este documento periodicamente.</p>
+  </div>
+
+  <div class="doc-section" id="s11">
+    <h2><span>11.</span>Foro e Lei Aplicável</h2>
+    <p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca de <strong>Pelotas — RS</strong> para dirimir quaisquer controvérsias decorrentes deste instrumento, com renúncia expressa a qualquer outro, por mais privilegiado que seja.</p>
+  </div>
+
+  <div class="doc-section" id="s12">
+    <h2><span>12.</span>Contato</h2>
+    <p>Para dúvidas, solicitações ou reclamações relacionadas a estes Termos de Uso, entre em contato com nossa equipe:</p>
+    <ul>
+      <li><strong>WhatsApp:</strong> (53) 99175-0788</li>
+      <li><strong>E-mail:</strong> matheusgastal@gmail.com</li>
+      <li><strong>Empresa:</strong> Grigoletti Mídias LTDA — CNPJ 43.877.418/0001-94</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer class="doc-footer">
+  <img src="logo sem fundo STEP SCHOOL.png" alt="Step School">
+  <p>© 2026 · Grigoletti Mídias LTDA · CNPJ 43.877.418/0001-94</p>
+</footer>
+
+</body>
+</html>
