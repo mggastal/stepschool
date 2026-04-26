@@ -284,60 +284,44 @@ body {
   align-items: start;
 }
 .inside-left {}
-.inside-right {}
+.inside-right { display: flex; flex-direction: column; }
 
-.inside-photo-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.photo-slot {
-  aspect-ratio: 3/4;
-  background: rgba(200,146,42,0.06);
-  border: 1px dashed rgba(200,146,42,0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: rgba(200,146,42,0.35);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 16px;
-  overflow: hidden;
-}
-.photo-slot img {
+/* ── INSIDE SLIDESHOW ── */
+.inside-slideshow {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 2px;
 }
-.photo-slot-icon {
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(200,146,42,0.25);
-  border-radius: 50%;
+.inside-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.inside-slide.active { opacity: 1; }
+.inside-slide-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 8px;
+  z-index: 3;
 }
-.photo-slot-icon svg {
-  width: 14px;
-  height: 14px;
-  stroke: rgba(200,146,42,0.4);
-  fill: none;
-  stroke-width: 1.5;
+.isd {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transition: background 0.4s;
+  cursor: pointer;
 }
+.isd.active { background: var(--gold-light); }
 
-.photo-slot-wide {
-  grid-column: 1 / -1;
-  aspect-ratio: 16/7;
-}
 
 .inside-features {
   display: flex;
@@ -1157,16 +1141,15 @@ footer {
       </div>
     </div>
     <div class="inside-right">
-      <div class="inside-photo-row">
-        <div class="photo-slot">
-          <img src="Discord.png" alt="Discord Step School" style="width:100%;height:100%;object-fit:cover;">
+      <div class="inside-slideshow">
+        <div class="inside-slide active" style="background-image:url('Discord.png')"></div>
+        <div class="inside-slide" style="background-image:url('escola01.png')"></div>
+        <div class="inside-slide" style="background-image:url('escola02.png')"></div>
+        <div class="inside-slide-dots">
+          <span class="isd active"></span>
+          <span class="isd"></span>
+          <span class="isd"></span>
         </div>
-        <div class="photo-slot">
-          <img src="escola01.png" alt="Escola Step School" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-      </div>
-      <div class="photo-slot photo-slot-wide">
-        <img src="escola02.png" alt="Aula ao vivo Step School" style="width:100%;height:100%;object-fit:cover;">
       </div>
     </div>
   </div>
@@ -1427,5 +1410,23 @@ footer {
   </div>
 </footer>
 
+<script>
+// Inside school slideshow
+(function() {
+  const slides = document.querySelectorAll('.inside-slide');
+  const dots   = document.querySelectorAll('.isd');
+  let cur = 0;
+  function go(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+  dots.forEach((d, i) => d.addEventListener('click', () => { clearInterval(timer); go(i); timer = setInterval(next, 4000); }));
+  function next() { go((cur + 1) % slides.length); }
+  let timer = setInterval(next, 4000);
+})();
+</script>
 </body>
 </html>
