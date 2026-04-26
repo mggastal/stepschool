@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — Step School</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B3E;
+    --navy-mid: #132248;
+    --gold: #C8922A;
+    --gold-light: #E0A840;
+    --white: #FFFFFF;
+    --cream: #F5F0E8;
+    --muted: #5A5A6A;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: #1A1A2E;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .doc-header {
+    background: var(--navy);
+    padding: 28px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .doc-header img { height: 44px; object-fit: contain; }
+  .doc-header-back {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .doc-header-back:hover { color: var(--gold-light); }
+
+  .doc-hero {
+    background: var(--navy-mid);
+    padding: 64px 5vw 56px;
+    border-bottom: 3px solid var(--gold);
+  }
+  .doc-hero-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .doc-hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--gold-light); }
+  .doc-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .doc-hero-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+  }
+
+  .doc-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 5vw 100px;
+  }
+
+  .doc-section { margin-bottom: 48px; }
+  .doc-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(13,27,62,0.1);
+  }
+  .doc-section h2 span { color: var(--gold); margin-right: 10px; font-style: italic; }
+  .doc-section p {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+  .doc-section p:last-child { margin-bottom: 0; }
+  .doc-section ul {
+    margin: 10px 0 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .doc-section ul li {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .doc-section ul li::marker { color: var(--gold); }
+  .doc-section strong { color: #1A1A2E; font-weight: 600; }
+
+  .doc-index {
+    background: var(--white);
+    border: 1px solid rgba(13,27,62,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+    margin-bottom: 48px;
+  }
+  .doc-index h3 {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .doc-index ol {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .doc-index ol li a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .doc-index ol li a:hover { color: var(--gold); }
+
+  .lgpd-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(200,146,42,0.3);
+    padding: 6px 14px;
+    margin-bottom: 32px;
+  }
+
+  .doc-footer {
+    background: #07101F;
+    padding: 28px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .doc-footer img { height: 36px; object-fit: contain; }
+  .doc-footer p {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <img src="logo sem fundo STEP SCHOOL.png" alt="Step School">
+  <a class="doc-header-back" href="https://stepschool.com.br">← Voltar ao site</a>
+</header>
+
+<div class="doc-hero">
+  <div class="doc-hero-tag">Documento legal</div>
+  <h1>Política de Privacidade</h1>
+  <p class="doc-hero-meta">Última atualização: abril de 2026 · Grigoletti Mídias LTDA — CNPJ 43.877.418/0001-94</p>
+</div>
+
+<div class="doc-body">
+
+  <div class="lgpd-badge">Em conformidade com a LGPD — Lei nº 13.709/2018</div>
+
+  <div class="doc-index">
+    <h3>Índice</h3>
+    <ol>
+      <li><a href="#p1">1. Quem somos</a></li>
+      <li><a href="#p2">2. Quais dados coletamos</a></li>
+      <li><a href="#p3">3. Como e por que usamos seus dados</a></li>
+      <li><a href="#p4">4. Compartilhamento de dados</a></li>
+      <li><a href="#p5">5. Armazenamento e segurança</a></li>
+      <li><a href="#p6">6. Cookies e rastreamento</a></li>
+      <li><a href="#p7">7. Seus direitos como titular</a></li>
+      <li><a href="#p8">8. Retenção e exclusão de dados</a></li>
+      <li><a href="#p9">9. Menores de idade</a></li>
+      <li><a href="#p10">10. Alterações nesta política</a></li>
+      <li><a href="#p11">11. Encarregado de Dados (DPO)</a></li>
+      <li><a href="#p12">12. Contato</a></li>
+    </ol>
+  </div>
+
+  <div class="doc-section" id="p1">
+    <h2><span>1.</span>Quem somos</h2>
+    <p>A <strong>Step School</strong> é operada pela <strong>Grigoletti Mídias LTDA</strong>, pessoa jurídica de direito privado inscrita sob o CNPJ 43.877.418/0001-94. Somos responsáveis pelo tratamento dos dados pessoais coletados em nossa plataforma, site e canais de atendimento.</p>
+    <p>Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos seus dados pessoais, em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong> e demais normas aplicáveis.</p>
+  </div>
+
+  <div class="doc-section" id="p2">
+    <h2><span>2.</span>Quais dados coletamos</h2>
+    <p>Coletamos apenas os dados necessários para a prestação adequada dos nossos serviços. As categorias de dados tratados incluem:</p>
+    <ul>
+      <li><strong>Dados de identificação:</strong> nome completo, CPF (quando necessário para emissão de nota fiscal), endereço de e-mail e número de telefone/WhatsApp.</li>
+      <li><strong>Dados de acesso:</strong> login, senha (armazenada de forma criptografada) e registros de acesso à plataforma (IP, data, horário).</li>
+      <li><strong>Dados de pagamento:</strong> informações de transação processadas por gateways de pagamento terceirizados. Não armazenamos dados de cartão de crédito.</li>
+      <li><strong>Dados de uso:</strong> aulas assistidas, progresso nos módulos, participação nas mentorias ao vivo.</li>
+      <li><strong>Dados de comunicação:</strong> mensagens trocadas via WhatsApp, Discord ou e-mail com nossa equipe.</li>
+      <li><strong>Dados de navegação:</strong> cookies, identificadores de sessão e informações de dispositivo coletados automaticamente.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section" id="p3">
+    <h2><span>3.</span>Como e por que usamos seus dados</h2>
+    <p>Utilizamos seus dados pessoais para as seguintes finalidades, com base nas bases legais previstas na LGPD:</p>
+    <ul>
+      <li><strong>Execução do contrato:</strong> criação e gestão do cadastro, liberação do acesso à plataforma, envio de recibos e comunicações relacionadas ao serviço contratado.</li>
+      <li><strong>Legítimo interesse:</strong> melhoria contínua da plataforma, análise de engajamento com os conteúdos e personalização da experiência do aluno.</li>
+      <li><strong>Cumprimento de obrigação legal:</strong> emissão de notas fiscais, atendimento a requisições de autoridades e obrigações tributárias.</li>
+      <li><strong>Consentimento:</strong> envio de comunicações de marketing, novidades e promoções — você pode revogar esse consentimento a qualquer momento.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section" id="p4">
+    <h2><span>4.</span>Compartilhamento de dados</h2>
+    <p>Seus dados pessoais não são vendidos ou cedidos para fins comerciais. Podemos compartilhá-los apenas nas seguintes situações:</p>
+    <ul>
+      <li><strong>Parceiros operacionais:</strong> plataformas de pagamento, ferramentas de e-mail marketing e sistemas de videoconferência (como Zoom), que atuam como operadores de dados sob nosso contrato e com obrigações de sigilo.</li>
+      <li><strong>Obrigação legal:</strong> quando exigido por lei, decisão judicial ou autoridade competente.</li>
+      <li><strong>Proteção de direitos:</strong> em caso de litígio ou necessidade de defesa judicial dos nossos direitos.</li>
+    </ul>
+    <p>Todos os terceiros que recebem dados são contratualmente obrigados a tratá-los com segurança e em conformidade com a LGPD.</p>
+  </div>
+
+  <div class="doc-section" id="p5">
+    <h2><span>5.</span>Armazenamento e segurança</h2>
+    <p>Seus dados são armazenados em servidores seguros, com acesso restrito e controlado. Adotamos medidas técnicas e organizacionais adequadas para proteger as informações contra acesso não autorizado, perda, alteração ou destruição, incluindo:</p>
+    <ul>
+      <li>Criptografia de senhas e dados sensíveis em trânsito e em repouso.</li>
+      <li>Controle de acesso baseado em perfis e necessidade de conhecimento.</li>
+      <li>Monitoramento regular de vulnerabilidades e atualizações de segurança.</li>
+    </ul>
+    <p>Em caso de incidente de segurança que possa afetar seus dados, você será notificado nos prazos previstos pela LGPD e pela Autoridade Nacional de Proteção de Dados (ANPD).</p>
+  </div>
+
+  <div class="doc-section" id="p6">
+    <h2><span>6.</span>Cookies e rastreamento</h2>
+    <p>Utilizamos cookies e tecnologias similares em nosso site para melhorar a navegação, medir o desempenho das páginas e otimizar nossas campanhas de marketing. Os tipos de cookies utilizados incluem:</p>
+    <ul>
+      <li><strong>Cookies essenciais:</strong> necessários para o funcionamento básico do site e da plataforma.</li>
+      <li><strong>Cookies analíticos:</strong> coletam dados agregados sobre como os usuários navegam no site (ex.: Google Analytics).</li>
+      <li><strong>Cookies de marketing:</strong> usados para exibir anúncios relevantes em plataformas como Meta (Facebook/Instagram) e Google.</li>
+    </ul>
+    <p>Você pode gerenciar ou desativar cookies por meio das configurações do seu navegador. A desativação de cookies essenciais pode impactar o funcionamento de algumas funcionalidades.</p>
+  </div>
+
+  <div class="doc-section" id="p7">
+    <h2><span>7.</span>Seus direitos como titular</h2>
+    <p>Em conformidade com a LGPD, você tem os seguintes direitos em relação aos seus dados pessoais:</p>
+    <ul>
+      <li><strong>Confirmação e acesso:</strong> saber se tratamos seus dados e obter uma cópia deles.</li>
+      <li><strong>Correção:</strong> solicitar a atualização de dados incompletos, inexatos ou desatualizados.</li>
+      <li><strong>Anonimização ou exclusão:</strong> pedir a anonimização ou eliminação de dados desnecessários ou tratados em desconformidade com a lei.</li>
+      <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado para transferência a outro fornecedor.</li>
+      <li><strong>Revogação do consentimento:</strong> retirar o consentimento dado para tratamentos específicos, como comunicações de marketing.</li>
+      <li><strong>Oposição:</strong> opor-se ao tratamento realizado com base em legítimo interesse, mediante justificativa.</li>
+      <li><strong>Informação sobre compartilhamento:</strong> saber com quais terceiros seus dados são compartilhados.</li>
+    </ul>
+    <p>Para exercer qualquer um desses direitos, entre em contato com nossa equipe pelos canais indicados na seção 12. Atenderemos sua solicitação no prazo de até <strong>15 dias úteis</strong>.</p>
+  </div>
+
+  <div class="doc-section" id="p8">
+    <h2><span>8.</span>Retenção e exclusão de dados</h2>
+    <p>Mantemos seus dados pelo tempo necessário para cumprir as finalidades descritas nesta política ou para atender obrigações legais e regulatórias. Os critérios utilizados para determinar o prazo de retenção incluem:</p>
+    <ul>
+      <li>Duração do contrato de prestação de serviços.</li>
+      <li>Prazo prescricional aplicável para eventual defesa em processos judiciais (até 5 anos após o encerramento do contrato).</li>
+      <li>Obrigações fiscais e contábeis (até 5 anos, conforme legislação tributária).</li>
+    </ul>
+    <p>Após o período de retenção aplicável, os dados são eliminados de forma segura ou anonimizados.</p>
+  </div>
+
+  <div class="doc-section" id="p9">
+    <h2><span>9.</span>Menores de idade</h2>
+    <p>Os serviços da Step School são destinados a pessoas com <strong>18 anos ou mais</strong>. Não coletamos conscientemente dados pessoais de menores de idade. Caso identifiquemos que dados de um menor foram fornecidos sem o consentimento de seu responsável legal, os excluiremos imediatamente.</p>
+  </div>
+
+  <div class="doc-section" id="p10">
+    <h2><span>10.</span>Alterações nesta política</h2>
+    <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças em nossas práticas, na legislação aplicável ou nos serviços oferecidos. Alterações relevantes serão comunicadas por e-mail cadastrado ou por aviso destacado em nossa plataforma.</p>
+    <p>Recomendamos que você revise este documento periodicamente. A data da última atualização está indicada no topo desta página.</p>
+  </div>
+
+  <div class="doc-section" id="p11">
+    <h2><span>11.</span>Encarregado de Dados (DPO)</h2>
+    <p>O encarregado pelo tratamento de dados pessoais (Data Protection Officer — DPO) da Grigoletti Mídias LTDA é responsável por receber comunicações dos titulares e da Autoridade Nacional de Proteção de Dados (ANPD).</p>
+    <p>Para questões relacionadas à privacidade e proteção de dados, você pode contatar o encarregado diretamente pelo e-mail indicado na seção de contato.</p>
+  </div>
+
+  <div class="doc-section" id="p12">
+    <h2><span>12.</span>Contato</h2>
+    <p>Para exercer seus direitos, esclarecer dúvidas ou registrar reclamações sobre o tratamento dos seus dados pessoais, entre em contato com nossa equipe:</p>
+    <ul>
+      <li><strong>WhatsApp:</strong> (53) 99175-0788</li>
+      <li><strong>E-mail:</strong> matheusgastal@gmail.com</li>
+      <li><strong>Empresa:</strong> Grigoletti Mídias LTDA — CNPJ 43.877.418/0001-94</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer class="doc-footer">
+  <img src="logo sem fundo STEP SCHOOL.png" alt="Step School">
+  <p>© 2026 · Grigoletti Mídias LTDA · CNPJ 43.877.418/0001-94</p>
+</footer>
+
+</body>
+</html>
