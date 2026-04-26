@@ -273,27 +273,38 @@ body {
 /* ── INSIDE SCHOOL ── */
 .inside {
   background: var(--navy-mid);
-  padding: 100px 5vw;
-}
-.inside-grid {
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+  min-height: 900px;
 }
-.inside-left {}
-.inside-right { display: flex; flex-direction: column; }
+.inside-grid {
+  display: contents; /* let children be direct grid items */
+}
+.inside-left {
+  padding: 100px 5vw 100px 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 620px;
+  margin: 0 auto;
+  width: 100%;
+}
+.inside-right {
+  display: flex;
+  flex-direction: column;
+  min-height: 900px;
+  border-left: 1px solid rgba(200,146,42,0.12);
+}
 
 /* ── INSIDE SLIDESHOW ── */
 .inside-slideshow {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 520px;
+  flex: 1;
+  min-height: 900px;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 0;
 }
 .inside-slide {
   position: absolute;
@@ -306,7 +317,7 @@ body {
 .inside-slide.active { opacity: 1; }
 .inside-slide-dots {
   position: absolute;
-  bottom: 16px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -314,7 +325,7 @@ body {
   z-index: 3;
 }
 .isd {
-  width: 6px; height: 6px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: rgba(255,255,255,0.3);
   transition: background 0.4s;
@@ -954,18 +965,18 @@ body {
 /* ── FOOTER ── */
 footer {
   background: #07101F;
-  padding: 32px 5vw;
+  padding: 28px 5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
 }
-.footer-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-style: italic;
-  color: var(--gold-light);
+footer .footer-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 .footer-meta {
   font-size: 9px;
@@ -1018,7 +1029,8 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .hero-photo-area { display: none; }
-  .inside-grid { grid-template-columns: 1fr; gap: 40px; }
+  .inside { grid-template-columns: 1fr; }
+  .inside-right { min-height: 400px; }
   .teachers-grid { grid-template-columns: 1fr; }
   .pricing-cards { grid-template-columns: 1fr; }
   .proof-stats { grid-template-columns: 1fr 1fr; }
@@ -1092,7 +1104,7 @@ footer {
 <!-- ══ POR DENTRO DA ESCOLA ══ -->
 <section class="inside" id="inside">
   <div class="inside-grid">
-    <div class="inside-left">
+  <div class="inside-left">
       <div class="section-tag">Por dentro da escola</div>
       <h2 class="section-title">Estrutura de um time.<br>Não de um curso.</h2>
       <div class="inside-features">
@@ -1404,7 +1416,7 @@ footer {
 </section>
 
 <footer>
-  <div class="footer-brand">Stepschool.</div>
+  <img class="footer-logo-img" src="logo sem fundo STEP SCHOOL.png" alt="Step School">
   <div class="footer-meta">© 2026 · Grigoletti Mídias LTDA · CNPJ 43.877.418/0001-94</div>
   <div class="footer-links">
     <a href="https://www.instagram.com/stepschoolpoker/" target="_blank">
