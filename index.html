@@ -1465,23 +1465,6 @@ footer .footer-logo-img {
   <a href="privacidade.html" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(200,146,42,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Política de Privacidade</a>
 </div>
 
-<script>
-// Inside school slideshow
-(function() {
-  const slides = document.querySelectorAll('.inside-slide');
-  const dots   = document.querySelectorAll('.isd');
-  let cur = 0;
-  function go(n) {
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
-    cur = n;
-    slides[cur].classList.add('active');
-    dots[cur].classList.add('active');
-  }
-  dots.forEach((d, i) => d.addEventListener('click', () => { clearInterval(timer); go(i); timer = setInterval(next, 4000); }));
-  function next() { go((cur + 1) % slides.length); }
-  let timer = setInterval(next, 4000);
-})();
-</script>
+
 </body>
 </html>
