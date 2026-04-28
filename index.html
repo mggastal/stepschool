@@ -58,13 +58,13 @@ body {
   inset: 0;
   background:
     linear-gradient(90deg,
-      rgba(9,14,32,0.96) 0%,
-      rgba(9,14,32,0.85) 40%,
-      rgba(9,14,32,0.45) 68%,
-      rgba(9,14,32,0.10) 100%),
+      rgba(9,14,32,0.97) 0%,
+      rgba(9,14,32,0.88) 35%,
+      rgba(9,14,32,0.30) 60%,
+      rgba(9,14,32,0.05) 100%),
     linear-gradient(to top,
-      rgba(9,14,32,0.9) 0%,
-      transparent 45%);
+      rgba(9,14,32,0.75) 0%,
+      transparent 40%);
 }
 
 .hero-grid-lines {
@@ -87,14 +87,14 @@ body {
   position: relative;
   z-index: 4;
   padding: 0 5vw 72px;
-  max-width: 620px;
+  max-width: 700px;
 }
 
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -112,7 +112,7 @@ body {
 
 .hero-logo-img {
   display: block;
-  height: 56px;
+  height: 80px;
   margin-bottom: 32px;
   opacity: 0;
   animation: fadeUp 0.8s ease 0.2s forwards;
@@ -143,13 +143,15 @@ body {
 
 .hero-h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  font-size: clamp(2.8rem, 4.2rem, 4.2rem);
+  font-size: 4.2rem;
   font-weight: 900;
   line-height: 1.06;
   color: var(--white);
   margin-bottom: 12px;
   opacity: 0;
   animation: fadeUp 0.9s ease 0.3s forwards;
+  white-space: nowrap;
 }
 
 .hero-h1 em {
@@ -274,64 +276,65 @@ body {
 .inside {
   background: var(--navy-mid);
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 900px;
 }
 .inside-grid {
-  display: contents; /* let children be direct grid items */
+  display: block;
+}
+.inside-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 80px 6vw 64px;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 .inside-left {
-  padding: 100px 5vw 100px 6vw;
+  padding-right: 64px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 620px;
-  margin: 0 auto;
-  width: 100%;
 }
 .inside-right {
   display: flex;
   flex-direction: column;
-  min-height: 900px;
+  justify-content: center;
   border-left: 1px solid rgba(200,146,42,0.12);
+  padding-left: 64px;
 }
 
-/* ── INSIDE SLIDESHOW ── */
-.inside-slideshow {
-  position: relative;
+/* ── INSIDE PHOTOS STRIP ── */
+.inside-photos-strip {
   width: 100%;
-  flex: 1;
-  min-height: 900px;
   overflow: hidden;
-  border-radius: 0;
+  position: relative;
+  height: 420px;
 }
-.inside-slide {
-  position: absolute;
-  inset: 0;
+.inside-photos-track {
+  display: flex;
+  height: 100%;
+  gap: 0;
+}
+.inside-photo-item {
+  flex: 1;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  transition: opacity 1s ease;
+  position: relative;
+  overflow: hidden;
+  transition: flex 0.4s ease;
 }
-.inside-slide.active { opacity: 1; }
-.inside-slide-dots {
+.inside-photo-item:hover { flex: 1.4; }
+.inside-photo-label {
   position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 3;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px 20px 16px;
+  background: linear-gradient(to top, rgba(9,14,32,0.85) 0%, transparent 100%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
 }
-.isd {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-  transition: background 0.4s;
-  cursor: pointer;
-}
-.isd.active { background: var(--gold-light); }
 
 
 .inside-features {
@@ -1028,19 +1031,36 @@ footer .footer-logo-img {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+  /* HERO mobile: remove background photo, solid navy */
+  .hero-bg { display: none; }
+  .hero-grid-lines { display: none; }
   .hero-photo-area { display: none; }
-  .inside { grid-template-columns: 1fr; }
-  .inside-right { min-height: 400px; }
+  .hero-content { max-width: 100%; padding: 0 6vw 60px; }
+  .hero-h1 { font-size: 2.6rem; white-space: normal; }
+
+  /* INSIDE mobile: stack top, hide photo strip */
+  .inside-top { grid-template-columns: 1fr; padding: 60px 6vw 48px; gap: 0; }
+  .inside-left { padding-right: 0; margin-bottom: 40px; }
+  .inside-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(200,146,42,0.12); padding-top: 32px; }
+  .inside-photos-strip { display: none; }
+
+  /* TEACHERS: stack */
   .teachers-grid { grid-template-columns: 1fr; }
+
+  /* PRICING: stack */
   .pricing-cards { grid-template-columns: 1fr; }
+
+  /* PROOF */
   .proof-stats { grid-template-columns: 1fr 1fr; }
   .proof-photos { grid-template-columns: 1fr 1fr; }
-  .hero-content { max-width: 100%; }
+
+  /* FOOTER */
   footer { flex-direction: column; text-align: center; }
 }
 @media (max-width: 480px) {
   .plan-header, .plan-features, .plan-cta { padding-left: 22px; padding-right: 22px; }
   .proof-stats { grid-template-columns: 1fr 1fr; }
+  .inside-photos-strip { display: none; }
 }
 </style>
 </head>
@@ -1104,66 +1124,72 @@ footer .footer-logo-img {
 <!-- ══ POR DENTRO DA ESCOLA ══ -->
 <section class="inside" id="inside">
   <div class="inside-grid">
-  <div class="inside-left">
-      <div class="section-tag">Por dentro da escola</div>
-      <h2 class="section-title">Estrutura de um time.<br>Não de um curso.</h2>
-      <div class="inside-features">
-        <div class="inside-feat">
-          <div class="feat-ico">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div class="inside-top">
+      <div class="inside-left">
+        <div class="section-tag" style="font-size:11px;">Por dentro da escola</div>
+        <h2 class="section-title">Estrutura de um time.<br>Não de um curso.</h2>
+      </div>
+      <div class="inside-right">
+        <div class="inside-features">
+          <div class="inside-feat">
+            <div class="feat-ico">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="feat-text">
+              <strong>Quinta-feira — 12:30</strong>
+              <span>Mentoria semanal ao vivo abordando teoria pré e pós-flop, ICM, MDA e PSKO. Conduzida por Thiago, Leocir e Fatgod.</span>
+            </div>
           </div>
-          <div class="feat-text">
-            <strong>Quinta-feira — 12:30</strong>
-            <span>Mentoria semanal ao vivo abordando teoria pré e pós-flop, ICM, MDA e PSKO. Conduzida por Thiago, Leocir e Fatgod.</span>
+          <div class="inside-feat">
+            <div class="feat-ico">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="feat-text">
+              <strong>Sexta do PSKO — 10:00</strong>
+              <span>Mentoria integrada com membros do Step Team, conduzida por Josiel Aires e Cristiano Tunes.</span>
+            </div>
           </div>
-        </div>
-        <div class="inside-feat">
-          <div class="feat-ico">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <div class="inside-feat">
+            <div class="feat-ico">
+              <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+            </div>
+            <div class="feat-text">
+              <strong>+500 Aulas gravadas</strong>
+              <span>Plataforma completa organizada por temas e por datas. Acesse no seu ritmo, quando quiser.</span>
+            </div>
           </div>
-          <div class="feat-text">
-            <strong>Sexta do PSKO — 10:00</strong>
-            <span>Mentoria integrada com membros do Step Team, conduzida por Josiel Aires e Cristiano Tunes.</span>
+          <div class="inside-feat">
+            <div class="feat-ico">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <div class="feat-text">
+              <strong>Discord exclusivo</strong>
+              <span>Canal para dúvidas, análise de mãos e acompanhamento do andamento da mentoria com toda a comunidade.</span>
+            </div>
           </div>
-        </div>
-        <div class="inside-feat">
-          <div class="feat-ico">
-            <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-          </div>
-          <div class="feat-text">
-            <strong>+500 Aulas gravadas</strong>
-            <span>Plataforma completa organizada por temas e por datas. Acesse no seu ritmo, quando quiser.</span>
-          </div>
-        </div>
-        <div class="inside-feat">
-          <div class="feat-ico">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          </div>
-          <div class="feat-text">
-            <strong>Discord exclusivo</strong>
-            <span>Canal para dúvidas, análise de mãos e acompanhamento do andamento da mentoria com toda a comunidade.</span>
-          </div>
-        </div>
-        <div class="inside-feat">
-          <div class="feat-ico">
-            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-          </div>
-          <div class="feat-text">
-            <strong>Turmas reduzidas</strong>
-            <span>Nossa proposta é uma escola com um número de pessoas onde todos recebem atenção. Microfone aberto, conversa real — como um time de Poker.</span>
+          <div class="inside-feat">
+            <div class="feat-ico">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </div>
+            <div class="feat-text">
+              <strong>Turmas reduzidas</strong>
+              <span>Nossa proposta é uma escola com um número de pessoas onde todos recebem atenção. Microfone aberto, conversa real — como um time de Poker.</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="inside-right">
-      <div class="inside-slideshow">
-        <div class="inside-slide active" style="background-image:url('Discord.png')"></div>
-        <div class="inside-slide" style="background-image:url('escola01.png')"></div>
-        <div class="inside-slide" style="background-image:url('escola02.png')"></div>
-        <div class="inside-slide-dots">
-          <span class="isd active"></span>
-          <span class="isd"></span>
-          <span class="isd"></span>
+    <!-- FOTOS FULL WIDTH -->
+    <div class="inside-photos-strip">
+      <div class="inside-photos-track">
+        <div class="inside-photo-item" style="background-image:url('Discord.png')">
+          <div class="inside-photo-label">Comunidade</div>
+        </div>
+        <div class="inside-photo-item" style="background-image:url('escola01.png')">
+          <div class="inside-photo-label">Aulas ao vivo</div>
+        </div>
+        <div class="inside-photo-item" style="background-image:url('escola02.png')">
+          <div class="inside-photo-label">Plataforma</div>
         </div>
       </div>
     </div>
